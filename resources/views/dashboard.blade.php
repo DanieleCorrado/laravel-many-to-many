@@ -7,7 +7,7 @@
         </h2>
         <div class="mt-5">
             <h1 class="text-center mt-2">Project List</h1>
-            <div class="d-flex justify-content-between mt-5">
+            <div class="d-flex flex-wrap justify-content-between">
                 @foreach ($projects as $project)
                     <div class="border border-dark p-3">
                         <ul class="list-unstyled ">
