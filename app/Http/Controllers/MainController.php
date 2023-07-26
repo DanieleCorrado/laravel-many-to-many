@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 
 class MainController extends Controller
@@ -23,4 +24,10 @@ class MainController extends Controller
 
         return view('dashboard', compact('projects', 'types'));
     }
+
+    // public function show() {
+        
+
+    //     return view('projects.show', compact('project', 'technologies'));
+    // }
 }

@@ -13,14 +13,8 @@
                         <ul class="list-unstyled ">
                             <li class="mt-2"> Nome progetto: {{ $project->title }} </li>
                             <li class="mt-2"> Capo progetto: {{ $project->project_leader }} </li>
-                            @foreach ($types as $type)
-                                @if ($project->type_id === $type->id)
-                                    <li class="mt-2"> Tipo progetto: {{ $type->name }} </li>
-                                @endif
-                            @endforeach
                             <li class="mt-2"> Data inizio progetto: {{ $project->starting_date }} </li>
                             <li class="mt-2"> Priorita': {{ $project->priority }} </li>
-
                         </ul>
                     </div>
                 @endforeach

@@ -14,14 +14,15 @@ class Project extends Model
         "project_leader",
         "starting_date",
         "priority",
-        "type_id"
+        "type_id",
     ];
 
     public function type() {
         return $this -> belongsTo(Type :: class);
     }
 
-    public function technologys() {
+    public function technologies() {
         return $this -> belongsToMany(Technology :: class);
     }
+
 }

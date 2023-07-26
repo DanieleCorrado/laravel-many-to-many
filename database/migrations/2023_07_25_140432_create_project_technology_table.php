@@ -15,8 +15,6 @@ return new class extends Migration
     {
         Schema::create('project_technology', function (Blueprint $table) {
             $table->id();
-            $table->text('project_id');
-            $table->text('technology_id');
         });
     }
 
