@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container text-center">
+        <img class="my-4" src="{{ asset('storage/' . $project->picture) }}" alt="">
         <h1>{{ $project->name }}</h1>
         <p>
             {{ $project->description }}

@@ -24,7 +24,7 @@ Route :: get('/edit/{id}', [LoggedController :: class, 'edit'])
     -> middleware(['auth'])
     -> name('project.edit');
 
-Route :: get('/update/{$id}', [LoggedController :: class, 'update'])
+Route :: put('/update/{id}', [LoggedController :: class, 'update'])
     -> middleware(['auth'])
     -> name('project.update');
 

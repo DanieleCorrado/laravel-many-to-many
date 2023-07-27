@@ -5,10 +5,13 @@
 
         <h1>Create new Project</h1>
 
-        <form action="{{ route(project . store) }}" method="post">
+        <form action="{{ route('project.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('POST')
 
+            <label for="picture">PICTURE</label>
+            <input type="file" name="picture" id="picture">
+            <br>
             <label for="name">NAME</label>
             <br>
             <input type="text" name="name" id="name">
@@ -19,11 +22,11 @@
             <br>
             <label for="start_date">START DATE</label>
             <br>
-            <input type="date" name="start_date" id="start_date">
+            <input type="date" name="starting_date" id="starting_date">
             <br>
             <label for="end_date">END DATE</label>
             <br>
-            <input type="date" name="end_date" id="end_date">
+            <input type="date" name="ending_date" id="ending_date">
             <br>
             <label for="difficulty">DIFFICULTY</label>
             <br>

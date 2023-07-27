@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container text-center">
-        <h1>Create new Project</h1>
+        <h1>Edit Project</h1>
         <form method="POST" action="{{ route('project.update', $project->id) }}">
 
             @csrf

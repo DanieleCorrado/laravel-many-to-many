@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LoggedController extends Controller
 {
@@ -28,8 +29,14 @@ class LoggedController extends Controller
 
         $data = $request -> all();
 
+        $data['picture'] = Storage :: put('uploads', $data['picture']);
+
         $project = Project :: create($data);
-        $project -> technologies() -> attach($data['Technologies']);
+        if($data['technologies']) {
+            $project -> technologies() -> attach($data['technologies']);
+        }
+
+        return redirect() -> route('project.show', $project -> id);
     }
 
     public function edit($id) {
@@ -47,12 +54,12 @@ class LoggedController extends Controller
         $data = $request -> all();
 
         $project = Project :: findOrFail($id);
-        $project -> update();
+        $project -> update($data);
 
         $project -> technologies() -> sync(
-            array_key_exists('technologies', $data) 
-            ? $data['technologies'] : []
-        );
+            array_key_exists('technologies', $data)
+            ? $data['technologies']
+            : []);
 
         return redirect() -> route('project.show', $project -> id);
     }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('starting_date');
             $table->date('ending_date');
             $table->string('difficulty', 20);
+            $table->string('picture') -> nullable();
             $table->timestamps();
         });
     }

@@ -16,6 +16,7 @@ class Project extends Model
         "ending_date",
         "difficulty",
         "type_id",
+        "picture"
     ];
 
     public function type() {
