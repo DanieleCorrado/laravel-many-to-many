@@ -18,11 +18,5 @@ class TechnologySeeder extends Seeder
     public function run()
     {
         $technologies = Technology :: factory() -> count(10) -> create();
-
-        foreach ($technologies as $technology) {
-            $projects = Project :: inRandomOrder() -> limit(rand(1, 5)) -> get();
-
-            $technology -> projects() -> attach($projects);
-        }
     }
 }

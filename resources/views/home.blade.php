@@ -1,10 +1,25 @@
 @extends('layouts.app')
 @section('content')
-    <div class="mt-5">
-        <h1 class="text-center mt-2">Project List</h1>
-        <ul class="text-center list-unstyled mt-3">
+    <div class="container text-center">
+        <h1>Hello,
+            @auth
+                {{ Auth::user()->name }}!
+                <a class="btn btn-primary" href="{{ route('project.create') }}">+</a>
+            @endauth
+            @guest
+                World!
+            @endguest
+        </h1>
+        <ul class="list-unstyled">
             @foreach ($projects as $project)
-                <li class="mt-2"> {{ $project->title }} </li>
+                <li>
+                    @auth
+                        <a href="{{ route('project.show', $project->id) }}"> {{ $project->name }}</a>
+                    @endauth
+                    @guest
+                        {{ $project->name }}
+                    @endguest
+                </li>
             @endforeach
         </ul>
     </div>

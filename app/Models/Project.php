@@ -10,18 +10,21 @@ class Project extends Model
     use HasFactory;
 
     protected $fillable = [
-        "title",
-        "project_leader",
+        "name",
+        "description",
         "starting_date",
-        "priority",
+        "ending_date",
+        "difficulty",
         "type_id",
     ];
 
     public function type() {
+
         return $this -> belongsTo(Type :: class);
     }
 
     public function technologies() {
+        
         return $this -> belongsToMany(Technology :: class);
     }
 

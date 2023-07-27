@@ -25,10 +25,13 @@ class ProjectTableSeeder extends Seeder
        foreach ($projects as $project) {
 
         $type = Type :: inRandomOrder() -> first();
+
         $project -> type_id = $type -> id;
-        // $technology = Technology :: inRandomOrder() -> first();
-        // $project -> technology_id = $technology -> id;
+
         $project -> save();
+
+        $technologies = Technology :: inRandomOrder() -> limit(rand(0, 4)) -> get();
+        $project -> technologies() -> attach($technologies);
        }
 
     }

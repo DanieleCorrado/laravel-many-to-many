@@ -17,10 +17,11 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            "title" => fake() -> word(),
-            "project_leader" => fake() -> name(),
+            "name" => fake() -> word(),
+            "description" => fake() -> paragraph(),
             "starting_date" => fake() -> date(),
-            "priority" => fake() -> numberBetween(1, 5)
+            "ending_date" => fake() -> date(),
+            "difficulty" => fake() -> randomElement(['easy', 'medium', 'hard'])
         ];
     }
 }
